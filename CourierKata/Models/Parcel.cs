@@ -1,10 +1,11 @@
 ﻿namespace CourierKata.Models;
 
-public class Parcel
+public class Parcel: IOrderLine
 {
     public ParcelSize Size { get; }
-    public int Cost { get; set; }
-    
+    public int Cost { get; }
+    public string Description => $"{Size} Parcel: ${Cost}";
+
     public Parcel(int height, int width, int length)
     {
         Size = Math.Max(height, Math.Max(width, length)) switch
