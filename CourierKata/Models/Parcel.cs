@@ -14,6 +14,15 @@ public class Parcel
             < 100 => ParcelSize.Large,
             _ => ParcelSize.XL
         };
-        
+
+        Cost = Size switch
+        {
+            ParcelSize.Small => 3,
+            ParcelSize.Medium => 8,
+            ParcelSize.Large => 15,
+            ParcelSize.XL => 25,
+            _ => throw new ArgumentOutOfRangeException()
+        };
+
     }
 }

@@ -53,4 +53,30 @@ public class ParcelTests
         var actual = parcel.Cost;
         Assert.AreEqual(3, actual);
     }
+    
+    [Test]
+    public void A_medium_parcel_should_cost_8()
+    {
+        var parcel = new Parcel(10, 10, 10);
+        var actual = parcel.Cost;
+        Assert.AreEqual(8, actual);
+    }  
+    
+    [Test]
+    public void A_large_parcel_should_cost_15()
+    {
+        var parcel = new Parcel(50, 50, 50);
+        var actual = parcel.Cost;
+        Assert.AreEqual(15, actual);
+    } 
+    
+    [Test]
+    public void An_XL_parcel_should_cost_25()
+    {
+        var parcel = new Parcel(100, 100, 100);
+        var actual = parcel.Cost;
+        Assert.AreEqual(25, actual);
+    }
+    
+    
 }
