@@ -16,14 +16,24 @@ public class Parcel: IOrderLine
             _ => ParcelSize.XL
         };
 
-        Cost = Size switch
-        {
-            ParcelSize.Small => 3,
-            ParcelSize.Medium => 8,
-            ParcelSize.Large => 15,
-            ParcelSize.XL => 25,
-            _ => throw new ArgumentOutOfRangeException()
-        };
-
+        Cost = BaseCost + OverWeightCharge(weight);
     }
+
+    private int BaseCost => Size switch
+    {
+        ParcelSize.Small => 3,
+        ParcelSize.Medium => 8,
+        ParcelSize.Large => 15,
+        ParcelSize.XL => 25,
+        _ => throw new ArgumentOutOfRangeException()
+    };
+    
+    private int OverWeightCharge (int weight) => Math.Max(0, Size switch
+    {
+        ParcelSize.Small => (weight - 1) * 2,
+        ParcelSize.Medium => (weight - 3) * 2,
+        ParcelSize.Large => (weight - 6) * 2,
+        ParcelSize.XL => (weight - 10) * 2,
+        _ => throw new ArgumentOutOfRangeException()
+    });
 }
