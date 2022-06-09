@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using CourierKata.Models;
+﻿using CourierKata.Models;
 using NUnit.Framework;
 
 namespace CourierKata.Tests;
@@ -23,5 +22,16 @@ public class ParcelTests
         var parcel = new Parcel(height, width, length);
         var actual = parcel.Size;
         Assert.AreEqual(ParcelSize.Medium, actual);
+    }
+    
+    [TestCase(50,1,1)]
+    [TestCase(9,50,9)]
+    [TestCase(9,10,50)]
+    [TestCase(9,10,99)]
+    public void It_should_be_a_large_parcel(int height, int width, int length)
+    {
+        var parcel = new Parcel(height, width, length);
+        var actual = parcel.Size;
+        Assert.AreEqual(ParcelSize.Large, actual);
     }
 }
