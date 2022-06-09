@@ -10,7 +10,7 @@ public class Parcel
             < 10 => ParcelSize.Small,
             < 50 => ParcelSize.Medium,
             < 100 => ParcelSize.Large,
-            _ => throw new NotImplementedException()
+            _ => ParcelSize.XL
         };
     }
 }
