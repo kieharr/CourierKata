@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourierKata", "CourierKata\CourierKata.csproj", "{BBD796AB-EEA7-49DB-8974-84FE1EBEDDCC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourierKata.Tests", "CourierKata.Tests\CourierKata.Tests.csproj", "{959DF59A-1D6D-4EB7-AD96-9685016DF0AB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BBD796AB-EEA7-49DB-8974-84FE1EBEDDCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBD796AB-EEA7-49DB-8974-84FE1EBEDDCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBD796AB-EEA7-49DB-8974-84FE1EBEDDCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBD796AB-EEA7-49DB-8974-84FE1EBEDDCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{959DF59A-1D6D-4EB7-AD96-9685016DF0AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{959DF59A-1D6D-4EB7-AD96-9685016DF0AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{959DF59A-1D6D-4EB7-AD96-9685016DF0AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{959DF59A-1D6D-4EB7-AD96-9685016DF0AB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
