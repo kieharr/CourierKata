@@ -39,5 +39,17 @@ public class OrderTests
         order.Parcels.Add(new Parcel(100,100,100));
         var actual = order.PrintOrder();
         Assert.AreEqual("XL Parcel: $25. Total Cost: $25", actual);
+    } 
+    
+    [Test]
+    public void Speedy_shipping_for_small_package_should_double_the_cost_to_6()
+    {
+        var order = new Order();
+        order.Parcels.Add(new Parcel(1,1,1));
+        order.SpeedyShipping = true;
+        order.Checkout();
+
+        var actualCost = order.Total;
+        Assert.AreEqual(6, actualCost);
     }
 }

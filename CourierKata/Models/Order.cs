@@ -5,19 +5,20 @@ namespace CourierKata.Models;
 public class Order
 {
     public List<Parcel> Parcels { get;  } = new ();
-    private OrderTotal _total = new ();
+    public bool SpeedyShipping { get; set; }
+    public OrderTotal Total { get; } = new ();
 
-    private bool IsCheckedOut = false;
+    private bool _isCheckedOut;
 
     public void Checkout()
     {
-        _total.Cost = Parcels.Sum(x => x.Cost);
-        IsCheckedOut = true;
+        Total.Cost = Parcels.Sum(x => x.Cost);
+        _isCheckedOut = true;
     }
     
     public string PrintOrder()
     {
-        if (!IsCheckedOut)
+        if (!_isCheckedOut)
         {
             Checkout();
         }
@@ -27,7 +28,7 @@ public class Order
         {
             sb.Append($"{parcel.Description}. ");
         }
-        sb.Append($"{_total.Description}");
+        sb.Append($"{Total.Description}");
 
         return sb.ToString();
     }
