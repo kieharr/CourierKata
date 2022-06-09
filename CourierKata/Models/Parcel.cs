@@ -2,7 +2,9 @@
 
 public class Parcel
 {
-    public ParcelSize Size { get; set; }
+    public ParcelSize Size { get; }
+    public int Cost { get; set; }
+    
     public Parcel(int height, int width, int length)
     {
         Size = Math.Max(height, Math.Max(width, length)) switch
@@ -12,5 +14,6 @@ public class Parcel
             < 100 => ParcelSize.Large,
             _ => ParcelSize.XL
         };
+        
     }
 }

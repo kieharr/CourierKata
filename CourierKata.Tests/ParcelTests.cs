@@ -45,4 +45,12 @@ public class ParcelTests
         var actual = parcel.Size;
         Assert.AreEqual(ParcelSize.XL, actual);
     }
+
+    [Test]
+    public void A_small_parcel_should_cost_3()
+    {
+        var parcel = new Parcel(1, 1, 1);
+        var actual = parcel.Cost;
+        Assert.AreEqual(3, actual);
+    }
 }
