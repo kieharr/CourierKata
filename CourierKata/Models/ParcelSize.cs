@@ -5,5 +5,6 @@ public enum ParcelSize
     Small,
     Medium,
     Large,
-    XL
+    XL,
+    Heavy
 }

@@ -46,6 +46,15 @@ public class ParcelTests
         Assert.AreEqual(ParcelSize.XL, actual);
     }
 
+    [TestCase(1,50)]
+    [TestCase(1,25)]
+    public void It_should_be_a_heavy_parcel(int dimensions, int weight)
+    {
+        var parcel = new Parcel(dimensions, dimensions, dimensions, weight);
+        var actual = parcel.Size;
+        Assert.AreEqual(ParcelSize.Heavy, actual);
+    }
+
     [Test]
     public void A_small_parcel_should_cost_3()
     {
