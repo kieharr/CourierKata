@@ -2,8 +2,8 @@
 
 public class Parcel: IOrderLine
 {
-    public ParcelSize Size { get; }
-    public int Cost { get; }
+    public ParcelSize Size { get; private set;  }
+    public int Cost { get; private set; }
     public string Description => $"{Size} Parcel: ${Cost}";
 
     public Parcel(int width, int length, int height, int weight)
@@ -16,24 +16,40 @@ public class Parcel: IOrderLine
             _ => ParcelSize.XL
         };
 
-        Cost = BaseCost + OverWeightCharge(weight);
+        Cost = BaseCost(Size) + OverWeightCharge(Size, weight);
+        AdjustForHeavyPackage(weight);
+    }
+    
+    private void AdjustForHeavyPackage(int weight)
+    {
+        if (Cost >= 50)
+        {
+            var heavyCost = BaseCost(ParcelSize.Heavy) + OverWeightCharge(ParcelSize.Heavy, weight);
+            if (heavyCost <= Cost)
+            {
+                Size = ParcelSize.Heavy;
+                Cost = heavyCost;
+            }
+        }
     }
 
-    private int BaseCost => Size switch
+    private int BaseCost (ParcelSize size) => size switch
     {
         ParcelSize.Small => 3,
         ParcelSize.Medium => 8,
         ParcelSize.Large => 15,
         ParcelSize.XL => 25,
+        ParcelSize.Heavy => 50,
         _ => throw new ArgumentOutOfRangeException()
     };
     
-    private int OverWeightCharge (int weight) => Math.Max(0, Size switch
+    private int OverWeightCharge (ParcelSize size, int weight) => Math.Max(0, size switch
     {
         ParcelSize.Small => (weight - 1) * 2,
         ParcelSize.Medium => (weight - 3) * 2,
         ParcelSize.Large => (weight - 6) * 2,
         ParcelSize.XL => (weight - 10) * 2,
+        ParcelSize.Heavy => weight - 50,
         _ => throw new ArgumentOutOfRangeException()
     });
 }

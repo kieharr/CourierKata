@@ -48,6 +48,7 @@ public class ParcelTests
 
     [TestCase(1,50)]
     [TestCase(1,25)]
+    [TestCase(2,25)]
     public void It_should_be_a_heavy_parcel(int dimensions, int weight)
     {
         var parcel = new Parcel(dimensions, dimensions, dimensions, weight);
@@ -121,6 +122,14 @@ public class ParcelTests
     [TestCase(11, 27)]
     [TestCase(12, 29)]
     public void An_XL_parcel_should_have_the_correct_overweight_charge(int weight, int expectedCost)
+    {
+        var parcel = new Parcel(100, 100, 100, weight);
+        var actual = parcel.Cost;
+        Assert.AreEqual(expectedCost, actual);
+    }
+
+    [TestCase(100, 100)]
+    public void An_heavy_parcel_should_have_the_correct_overweight_charge(int weight, int expectedCost)
     {
         var parcel = new Parcel(100, 100, 100, weight);
         var actual = parcel.Cost;

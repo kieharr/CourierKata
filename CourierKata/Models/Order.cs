@@ -10,6 +10,8 @@ public class Order
 
     private bool _isCheckedOut;
 
+    //todo add parcels via method. set _isCheckedOut to false when adding new packages
+    
     public void Checkout()
     {
         Total.Cost = Parcels.Sum(x => x.Cost);
@@ -19,7 +21,7 @@ public class Order
         }
         _isCheckedOut = true;
     }
-    
+
     public string PrintOrder()
     {
         if (!_isCheckedOut)
