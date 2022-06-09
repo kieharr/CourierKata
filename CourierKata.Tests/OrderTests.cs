@@ -9,7 +9,7 @@ public class OrderTests
     public void It_should_print_the_correct_order_for_a_single_small_package()
     {
         var order = new Order();
-        order.Parcels.Add(new Parcel(1,1,1));
+        order.Parcels.Add(new Parcel(1,1, 1, 0));
         var actual = order.PrintOrder();
         Assert.AreEqual("Small Parcel: $3. Total Cost: $3", actual);
     }
@@ -18,7 +18,7 @@ public class OrderTests
     public void It_should_print_the_correct_order_for_a_single_medium_package()
     {
         var order = new Order();
-        order.Parcels.Add(new Parcel(10,10,10));
+        order.Parcels.Add(new Parcel(10,10, 10, 0));
         var actual = order.PrintOrder();
         Assert.AreEqual("Medium Parcel: $8. Total Cost: $8", actual);
     }
@@ -27,7 +27,7 @@ public class OrderTests
     public void It_should_print_the_correct_order_for_a_single_large_package()
     {
         var order = new Order();
-        order.Parcels.Add(new Parcel(50,50,50));
+        order.Parcels.Add(new Parcel(50,50, 50, 0));
         var actual = order.PrintOrder();
         Assert.AreEqual("Large Parcel: $15. Total Cost: $15", actual);
     }    
@@ -36,7 +36,7 @@ public class OrderTests
     public void It_should_print_the_correct_order_for_a_single_xl_package()
     {
         var order = new Order();
-        order.Parcels.Add(new Parcel(100,100,100));
+        order.Parcels.Add(new Parcel(100,100, 100, 0));
         var actual = order.PrintOrder();
         Assert.AreEqual("XL Parcel: $25. Total Cost: $25", actual);
     } 
@@ -45,7 +45,7 @@ public class OrderTests
     public void Speedy_shipping_for_small_package_should_double_the_cost_to_6()
     {
         var order = new Order();
-        order.Parcels.Add(new Parcel(1,1,1));
+        order.Parcels.Add(new Parcel(1,1, 1, 0));
         order.SpeedyShipping = true;
         order.Checkout();
 

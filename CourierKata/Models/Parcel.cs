@@ -6,7 +6,7 @@ public class Parcel: IOrderLine
     public int Cost { get; }
     public string Description => $"{Size} Parcel: ${Cost}";
 
-    public Parcel(int height, int width, int length)
+    public Parcel(int width, int length, int height, int weight)
     {
         Size = Math.Max(height, Math.Max(width, length)) switch
         {
