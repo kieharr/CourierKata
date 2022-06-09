@@ -49,7 +49,7 @@ public class OrderTests
         order.SpeedyShipping = true;
         order.Checkout();
 
-        var actualCost = order.Total;
+        var actualCost = order.Total.Cost;
         Assert.AreEqual(6, actualCost);
     }
 }

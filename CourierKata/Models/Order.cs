@@ -13,6 +13,10 @@ public class Order
     public void Checkout()
     {
         Total.Cost = Parcels.Sum(x => x.Cost);
+        if (SpeedyShipping)
+        {
+            Total.Cost *= 2;
+        }
         _isCheckedOut = true;
     }
     
